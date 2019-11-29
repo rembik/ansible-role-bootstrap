@@ -4,19 +4,19 @@ dependency:
   options:
     role-file: requirements.yml
 driver:
-  name: docker
+  name: vagrant
+  provider:
+    name: virtualbox
 lint:
   name: yamllint
   options:
     config-file: molecule/.yamllint
 platforms:
-  # https://hub.docker.com/search/?type=image
-  - name: "${TEST_INSTANCE_PREFIX:-instance}_${TEST_DISTRO:-centos_latest}_${TOX_ENVNAME:-docker}"
-    image: ${TEST_DOCKER_IMAGE:-centos:latest}
-    pre_build_image: yes
-    command: ${TEST_DOCKER_COMMAND:-sleep infinity}
+  # https://app.vagrantup.com/boxes/search
+  - name: "${TEST_INSTANCE_PREFIX:-instance}_${TEST_DISTRO:-centos_latest}_vagrant"
+    image: ${TEST_VBOX:-centos/7}
     groups:
-      - ${TEST_DISTRO:-centos_latest}_docker
+      - ${TEST_DISTRO:-centos_latest}_vagrant
 provisioner:
   name: ansible
   lint:
@@ -27,7 +27,7 @@ provisioner:
   playbooks:
     converge: ${TEST_PLAYBOOK:-../playbook.yml}
 scenario:
-  name: default
+  name: vagrant
 verifier:
   name: goss
   directory: ../tests

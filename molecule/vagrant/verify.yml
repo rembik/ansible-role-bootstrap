@@ -26,11 +26,6 @@
       until: download_goss is succeeded
       retries: 3
 
-    - name: Create Molecule directory for test files
-      file:
-        path: "{{ goss_test_directory }}"
-        state: directory
-
     - name: Copy Goss tests to remote
       copy:
         src: "{{ item }}"
