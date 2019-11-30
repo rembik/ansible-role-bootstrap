@@ -79,7 +79,7 @@ install:
   - pip install tox-travis
 
 script:
-  - unbuffer tox -p
+  - unbuffer tox -p auto
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
