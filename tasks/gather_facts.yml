@@ -11,8 +11,10 @@
 - name: Set bootstrap facts (I)
   set_fact:
     bootstrap_distribution: "{{ item }}"
-    bootstrap_distribution_major_version: "{{ bootstrap_facts.stdout_lines | join(',') | regex_replace(
-                                          '^.*VERSION_ID=\"?(\\d{1,2})(\\.\\d{1,4})*?\"?.*$','\\1') | default('NA') }}"
+    bootstrap_distribution_major_version: "{{ ( bootstrap_facts.stdout_lines | join(',') | regex_replace(
+                                           '^.*VERSION_ID=.?(\\d{1,2})(\\.\\d{1,4})*?.*$','\\1')
+                                           ) if ( bootstrap_facts.stdout_lines | join(',')
+                                           ) is search('VERSION_ID') else 'NA' }}"
   loop: "{{ bootstrap_os_family_map | dict2items | map(attribute='value') | flatten }}"
   when:
     - bootstrap_facts.rc == 0
