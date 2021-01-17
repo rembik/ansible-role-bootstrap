@@ -21,13 +21,6 @@
     - name: Gather ansible facts
       setup:
 
-    - name: Debug ansible facts
-      debug:
-        msg: |
-          {{ ansible_distribution | default('NA') }}
-          {{ ansible_distribution_major_version | default('NA') }}
-          {{ ansible_os_family | default('NA') }}
-
     - name: Install bootstrap packages
       package:
         name: "{{ item }}"
@@ -55,6 +48,15 @@
 
     - name: Gather ansible facts
       setup:
+      vars:
+        ansible_user: "{{ bootstrap_ansible_user }}"
+
+    - name: Debug ansible facts
+      debug:
+        msg: |
+          {{ ansible_distribution | default('NA') }}
+          {{ ansible_distribution_major_version | default('NA') }}
+          {{ ansible_os_family | default('NA') }}
       vars:
         ansible_user: "{{ bootstrap_ansible_user }}"
 
