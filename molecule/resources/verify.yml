@@ -7,17 +7,21 @@
   tasks:
     - name: Test connection
       block:
-        - setup:
+        - name: Gather facts
+          setup:
 
-        - ping:
+        - name: Ping
+          ping:
       when:
         - bootstrap_ansible_user is undefined
 
     - name: Test connection (using bootstrap ansible_user)
       block:
-        - setup:
+        - name: Gather facts
+          setup:
 
-        - ping:
+        - name: Ping
+          ping:
       vars:
         ansible_user: "{{ bootstrap_ansible_user }}"
       when:
