@@ -1,14 +1,14 @@
 ---
 - name: Verify
   hosts: all
-  become: no
   gather_facts: no
+  become: no
 
   tasks:
     - name: Test connection
       block:
         - setup:
-        
+
         - ping:
       when:
         - bootstrap_ansible_user is undefined
@@ -16,7 +16,7 @@
     - name: Test connection (using bootstrap ansible_user)
       block:
         - setup:
-        
+
         - ping:
       vars:
         ansible_user: "{{ bootstrap_ansible_user }}"
