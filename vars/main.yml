@@ -51,7 +51,6 @@ bootstrap_os_family_map:
          'SLES_SAP', 'SUSE_LINUX', 'openSUSE Leap']
 
 bootstrap_search:
-  OracleLinux: 'Oracle Linux'
   Archlinux: 'Arch Linux'
   OracleLinux: 'Oracle Linux'
   RedHat: 'Red Hat'
