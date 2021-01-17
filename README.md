@@ -128,7 +128,7 @@ Author Information
 [debian]: https://hub.docker.com/_/debian
 [fedora]: https://hub.docker.com/_/fedora
 [gentoo]: https://hub.docker.com/r/gentoo/stage3-amd64
-[kali]: https://hub.docker.com/r/kalilinux/kali-linux-docker
+[kali]: https://hub.docker.com/r/kalilinux/kali
 [opensuse]: https://hub.docker.com/_/opensuse
 [redhat]: https://access.redhat.com/containers/#/registry.access.redhat.com/ubi8/ubi
 [ubuntu]: https://hub.docker.com/_/ubuntu

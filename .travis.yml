@@ -54,7 +54,7 @@ matrix:
     - env: TEST_DISTRO="fedora_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="fedora:latest"
     - env: TEST_DISTRO="fedora_rawhide" ANSIBLE="all" TEST_DOCKER_IMAGE="fedora:rawhide"
     - env: TEST_DISTRO="gentoo_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="gentoo/stage3-amd64:latest"
-    - env: TEST_DISTRO="kali_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="kalilinux/kali-linux-docker:latest"
+    - env: TEST_DISTRO="kali_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="kalilinux/kali:latest"
     - env: TEST_DISTRO="opensuse_leap" ANSIBLE="devel" TEST_DOCKER_IMAGE="opensuse/leap:latest"
     - env: TEST_DISTRO="opensuse_tumbleweed" ANSIBLE="devel" TEST_DOCKER_IMAGE="opensuse/tumbleweed:latest"
     - env: TEST_DISTRO="redhat_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="registry.access.redhat.com/ubi8/ubi:latest"

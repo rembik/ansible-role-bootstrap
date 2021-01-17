@@ -68,7 +68,7 @@ jobs:
             fedora_latest)  DOCKER_IMAGE="fedora:latest";;
             fedora-rawhide)  DOCKER_IMAGE="fedora:rawhide";;
             gentoo_latest)  DOCKER_IMAGE="gentoo/stage3-amd64:latest";;
-            kali_latest)  DOCKER_IMAGE="kalilinux/kali-linux-docker:latest";;
+            kali_latest)  DOCKER_IMAGE="kalilinux/kali:latest";;
             opensuse-leap)  DOCKER_IMAGE="opensuse/leap:latest";;
             opensuse-tumbleweed)  DOCKER_IMAGE="opensuse/tumbleweed:latest";;
             redhat_latest)  DOCKER_IMAGE="registry.access.redhat.com/ubi8/ubi:latest";;
