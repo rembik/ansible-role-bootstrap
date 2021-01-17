@@ -37,18 +37,21 @@ _bootstrap_install:
 # See URL for available OS families and search queries
 # https://github.com/ansible/ansible/blob/devel/lib/ansible/module_utils/facts/system/distribution.py
 bootstrap_os_family_map:
-  Alpine: [Alpine]
-  Archlinux: [Archlinux, Antergos, Manjaro]
-  Debian: [Debian, Ubuntu, Raspbian, Neon, KDE neon,
-           Linux Mint, SteamOS, Devuan, Kali, 'Cumulus Linux']
-  Gentoo: [Gentoo, Funtoo]
-  RedHat: [RedHat, Fedora, CentOS, Scientific, SLC,
-           Ascendos, CloudLinux, PSBM, OracleLinux, OVS,
-           OEL, Amazon, Virtuozzo, XenServer, Alibaba]
-  Suse: [SLED, 'openSUSE Tumbleweed', 'openSUSE Leap',
-         SLES_SAP, SUSE_LINUX, SLES, openSUSE, SuSE]
+  Alpine: ['Alpine']
+  Archlinux: ['Archlinux', 'Antergos', 'Manjaro']
+  Debian: ['Debian', 'Ubuntu', 'Raspbian', 'Neon', 'KDE neon',
+           'Linux Mint', 'SteamOS', 'Devuan', 'Kali', 'Cumulus Linux',
+           'Pop!_OS', 'Parrot', 'Pardus GNU/Linux']
+  Gentoo: ['Gentoo', 'Funtoo']
+  RedHat: ['RedHat', 'Fedora', 'CentOS', 'Scientific', 'SLC',
+           'Ascendos', 'CloudLinux', 'PSBM', 'OracleLinux', 'OVS',
+           'OEL', 'Amazon', 'Virtuozzo', 'XenServer', 'Alibaba',
+           'EulerOS', 'openEuler']
+  Suse: ['SuSE', 'SLES', 'SLED', 'openSUSE', 'openSUSE Tumbleweed',
+         'SLES_SAP', 'SUSE_LINUX', 'openSUSE Leap']
 
 bootstrap_search:
+  OracleLinux: 'Oracle Linux'
   Archlinux: 'Arch Linux'
   OracleLinux: 'Oracle Linux'
   RedHat: 'Red Hat'
