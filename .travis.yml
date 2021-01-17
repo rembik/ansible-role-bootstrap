@@ -3,7 +3,7 @@ dist: bionic
 sudo: required
 language: python
 python:
-  - "3.7"
+  - "3.9"
 services:
   - docker
 
@@ -12,9 +12,9 @@ env:
     - BOTO_CONFIG="/dev/null"
     - AWS_REGION="eu-central-1"
   matrix:
-    - TEST_DISTRO="alpine_latest" ANSIBLE="stable" TEST_DOCKER_IMAGE="alpine:latest" TEST_DOCKER_COMMAND="sh -c 'while true ; do sleep 1 ; done'"
-    - TEST_DISTRO="alpine_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="alpine:latest" TEST_DOCKER_COMMAND="sh -c 'while true ; do sleep 1 ; done'"
-    - TEST_DISTRO="alpine_edge" ANSIBLE="all" TEST_DOCKER_IMAGE="alpine:edge" TEST_DOCKER_COMMAND="sh -c 'while true ; do sleep 1 ; done'"
+    - TEST_DISTRO="alpine_latest" ANSIBLE="stable" TEST_DOCKER_IMAGE="alpine:latest" TEST_DOCKER_COMMAND="sh -c 'sleep infinity & wait'"
+    - TEST_DISTRO="alpine_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="alpine:latest" TEST_DOCKER_COMMAND="sh -c 'sleep infinity & wait'"
+    - TEST_DISTRO="alpine_edge" ANSIBLE="all" TEST_DOCKER_IMAGE="alpine:edge" TEST_DOCKER_COMMAND="sh -c 'sleep infinity & wait'"
     - TEST_DISTRO="amazonlinux_latest" ANSIBLE="stable" TEST_DOCKER_IMAGE="amazonlinux:latest"
     - TEST_DISTRO="amazonlinux_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="amazonlinux:latest"
     - TEST_DISTRO="archlinux_latest" ANSIBLE="stable" TEST_DOCKER_IMAGE="archlinux/base:latest"
@@ -44,8 +44,8 @@ env:
 matrix:
   fast_finish: false
   allow_failures:
-    - env: TEST_DISTRO="alpine_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="alpine:latest" TEST_DOCKER_COMMAND="sh -c 'while true ; do sleep 1 ; done'"
-    - env: TEST_DISTRO="alpine_edge" ANSIBLE="all" TEST_DOCKER_IMAGE="alpine:edge" TEST_DOCKER_COMMAND="sh -c 'while true ; do sleep 1 ; done'"
+    - env: TEST_DISTRO="alpine_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="alpine:latest" TEST_DOCKER_COMMAND="sh -c 'sleep infinity & wait'"
+    - env: TEST_DISTRO="alpine_edge" ANSIBLE="all" TEST_DOCKER_IMAGE="alpine:edge" TEST_DOCKER_COMMAND="sh -c 'sleep infinity & wait'"
     - env: TEST_DISTRO="amazonlinux_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="amazonlinux:latest"
     - env: TEST_DISTRO="archlinux_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="archlinux/base:latest"
     - env: TEST_DISTRO="centos_latest" ANSIBLE="devel" TEST_DOCKER_IMAGE="centos:latest"

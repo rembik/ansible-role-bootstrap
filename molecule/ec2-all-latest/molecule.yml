@@ -5,10 +5,10 @@ dependency:
     role-file: requirements.yml
 driver:
   name: ec2
-lint:
-  name: yamllint
-  options:
-    config-file: molecule/.yamllint
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
 platforms:
   # https://docs.aws.amazon.com/en_us/AWSEC2/latest/UserGuide/finding-an-ami.html
   - name: instance_amazonlinux_latest_ec2
@@ -53,13 +53,13 @@ platforms:
       - ubuntu_latest_ec2
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
   config_options:
     defaults:
-      callback_plugins: /usr/lib/python${TOX_PYTHON_VERSION:-3.7}/site-packages/ara/plugins/callbacks
+      stdout_callback: yaml
+      callback_plugins: /usr/lib/python${TEST_PYTHON_VERSION:-3.9}/site-packages/ara/plugins/callbacks
   playbooks:
-    converge: ${TEST_PLAYBOOK:-../playbook.yml}
+    converge: ${TEST_CONVERGE:-../resources/converge.yml}
+    verify: ${TEST_VERIFY:-../resources/verify.yml}
   inventory:
     group_vars:
       amazonlinux_latest_ec2:
@@ -75,9 +75,6 @@ provisioner:
       ubuntu_latest_ec2:
         bootstrap_user: ubuntu
 scenario:
-  name: ec2-all
+  name: ec2-all-latest
 verifier:
-  name: goss
-  directory: ../tests
-  lint:
-    name: yamllint
+  name: ansible

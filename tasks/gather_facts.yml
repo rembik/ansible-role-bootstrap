@@ -2,10 +2,11 @@
 - name: Lookup bootstrap facts
   become: no
   raw: "cat /etc/os-release"
+  check_mode: no
   register: bootstrap_facts
   changed_when: no
   vars:
-    ansible_user: "{{ bootstrap_user }}"
+    ansible_user: "{{ bootstrap_ansible_user }}"
 
 - name: Set bootstrap facts (I)
   set_fact:
@@ -24,4 +25,5 @@
   loop: "{{ bootstrap_os_family_map | dict2items }}"
   loop_control:
     label: "{{ item.key }}"
-  when: bootstrap_distribution in item.value
+  when:
+    - bootstrap_distribution in item.value

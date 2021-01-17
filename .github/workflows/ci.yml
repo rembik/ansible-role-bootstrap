@@ -1,0 +1,126 @@
+---
+name: CI
+on:
+  schedule:
+    - cron: '0 22 15 * *'  # every 15th day of month at 22:00
+  push:
+    branches:
+      - 'master'
+    tags:
+      - 'v?[0-9]+.[0-9]+.[0-9]+*'
+  pull_request:
+
+jobs:
+
+  test:
+    name: Test Ansible role
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      max-parallel: 4
+      fail-fast: false
+      matrix:
+        distro:
+          - alpine_latest
+          - amazonlinux_latest
+          - centos_latest
+          - debian_latest
+          - fedora_latest
+          - gentoo_latest
+          - kali_latest
+          - opensuse_leap
+          - opensuse_tumbleweed
+          - redhat_latest
+          - ubuntu_latest
+        ansible: [stable]
+        python-version: [3.9]
+        experimental: [false]
+        include:
+          - {distro: alpine_latest, ansible: devel, python-version: 3.9, experimental: true}
+          - {distro: amazonlinux_latest, ansible: devel, python-version: 3.9, experimental: true}
+          - {distro: debian_latest, ansible: devel, python-version: 3.9, experimental: true}
+          - {distro: fedora_latest, ansible: devel, python-version: 3.9, experimental: true}
+          - {distro: gentoo_latest, ansible: devel, python-version: 3.9, experimental: true}
+          - {distro: kali_latest, ansible: devel, python-version: 3.9, experimental: true}
+          - {distro: opensuse_leap, ansible: devel, python-version: 3.9, experimental: true}
+          - {distro: opensuse_tumbleweed, ansible: devel, python-version: 3.9, experimental: true}
+          - {distro: redhat_latest, ansible: devel, python-version: 3.9, experimental: true}
+          - {distro: ubuntu_latest, ansible: devel, python-version: 3.9, experimental: true}
+          - {distro: alpine_edge, ansible: all, python-version: 3.9, experimental: true}
+          - {distro: debian_unstable, ansible: all, python-version: 3.9, experimental: true}
+          - {distro: fedora_rawhide, ansible: all, python-version: 3.9, experimental: true}
+          - {distro: ubuntu_devel, ansible: all, python-version: 3.9, experimental: true}
+
+    steps:
+      - name: Check out codebase
+        uses: actions/checkout@v2
+
+      - name: Set test environment variables
+        id: env
+        run: |
+          case "${{ matrix.distro }}" in
+            alpine_latest)  DOCKER_IMAGE="alpine:latest";;
+            alpine-edge)  DOCKER_IMAGE="alpine:edge";;
+            amazonlinux_latest)  DOCKER_IMAGE="amazonlinux:latest";;
+            centos_latest)  DOCKER_IMAGE="centos:latest";;
+            debian_latest)  DOCKER_IMAGE="debian:latest";;
+            debian-unstable)  DOCKER_IMAGE="debian:unstable";;
+            fedora_latest)  DOCKER_IMAGE="fedora:latest";;
+            fedora-rawhide)  DOCKER_IMAGE="fedora:rawhide";;
+            gentoo_latest)  DOCKER_IMAGE="gentoo/stage3-amd64:latest";;
+            kali_latest)  DOCKER_IMAGE="kalilinux/kali-linux-docker:latest";;
+            opensuse-leap)  DOCKER_IMAGE="opensuse/leap:latest";;
+            opensuse-tumbleweed)  DOCKER_IMAGE="opensuse/tumbleweed:latest";;
+            redhat_latest)  DOCKER_IMAGE="registry.access.redhat.com/ubi8/ubi:latest";;
+            ubuntu_latest)  DOCKER_IMAGE="ubuntu:latest";;
+            ubuntu-devel)  DOCKER_IMAGE="ubuntu:devel";;
+          esac
+          echo ::set-output name=docker-image::${DOCKER_IMAGE}
+          if [[ "${{ matrix.distro }}" == alpine* ]]; then
+            DOCKER_COMMAND="sh -c 'sleep infinity & wait'"
+          fi
+          echo ::set-output name=docker-command::${DOCKER_COMMAND:-}
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "${{ matrix.python-version }}"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install tox tox-gh-actions
+
+      - name: Test role
+        timeout-minutes: 60
+        run: |
+          tox
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          ANSIBLE: ${{ matrix.ansible }}
+          TEST_PYTHON_VERSION: ${{ matrix.python-version }}
+          TEST_DISTRO: ${{ matrix.distro }}
+          TEST_DOCKER_IMAGE: ${{ steps.env.outputs.docker-image }}
+          TEST_DOCKER_COMMAND: ${{ steps.env.outputs.docker-command }}
+
+  release:
+    name: Release Ansible role
+    needs:
+      - test
+    if: false
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out codebase
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ansible
+
+      - name: Publish
+        run: >
+          ansible-galaxy role import --api-key ${{ secrets.ansible-galaxy-api-key }}
+          $(echo $GITHUB_REPOSITORY | cut -d/ -f1) $(echo $GITHUB_REPOSITORY | cut -d/ -f2)

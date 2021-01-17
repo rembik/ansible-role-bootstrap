@@ -18,25 +18,22 @@ sudo pip install ansible
 sudo pip install molecule
 ```
 
-You can decide, if you want to run the tests locally with Docker, Vagrant or on Amazon EC2. Follow the respective requirements for that:
-- [Docker](http://github.com/rembik/ansible-role-bootstrap/tree/master/molecule/docker-all/INSTALL.rst)
-- [Amazon EC2](http://github.com/rembik/ansible-role-bootstrap/tree/master/molecule/ec2-all/INSTALL.rst)
-- [Vagrant](http://github.com/rembik/ansible-role-bootstrap/tree/master/molecule/vagrant/INSTALL.rst)
+You can decide, if you want to run the tests locally with Docker or on Amazon EC2. Follow the respective requirements for that:
+- [Docker](http://github.com/rembik/ansible-role-bootstrap/tree/master/molecule/default/INSTALL.rst)
+- [Amazon EC2](http://github.com/rembik/ansible-role-bootstrap/tree/master/molecule/ec2/INSTALL.rst)
 
 Then run the test with the chosen deployment method:
 ```
-molecule test --senario-name default
-molecule test --senario-name docker-all
+molecule test
+molecule test --senario-name docker-all-latest
 
 molecule test --scenario-name ec2
-molecule test --scenario-name ec2-all
-
-molecule test --scenario-name vagrant
+molecule test --scenario-name ec2-all-latest
 ```
 
 In addition, if you want to run the tests on different Ansible versions locally with Docker and/or on Amazon EC2, use [tox](https://tox.readthedocs.io/en/latest/):
 ```
-sudo pip install tox-travis
+sudo pip install tox
 
 tox
 ```
