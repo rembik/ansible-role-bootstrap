@@ -66,6 +66,7 @@ bootstrap_install: "{{ _bootstrap_install[bootstrap_distribution ~'_'~ bootstrap
                     _bootstrap_install[bootstrap_os_family]) }}"
 
 # Map the right set of packages, based on gathered ansible_facts.
+# yamllint disable-line rule:line-length
 bootstrap_facts_packages: "{{ _bootstrap_packages[ansible_distribution ~'_'~ ansible_distribution_major_version]|default(
                            _bootstrap_packages[ansible_distribution])|default(
                            _bootstrap_packages[ansible_os_family]) }}"
