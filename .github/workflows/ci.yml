@@ -62,21 +62,21 @@ jobs:
         run: |
           case "${{ matrix.distro }}" in
             alpine_latest)  DOCKER_IMAGE="alpine:latest";;
-            alpine-edge)  DOCKER_IMAGE="alpine:edge";;
+            alpine_edge)  DOCKER_IMAGE="alpine:edge";;
             amazonlinux_latest)  DOCKER_IMAGE="amazonlinux:latest";;
             archlinux_latest)  DOCKER_IMAGE="archlinux/base:latest";;
             centos_latest)  DOCKER_IMAGE="centos:latest";;
             debian_latest)  DOCKER_IMAGE="debian:latest";;
-            debian-unstable)  DOCKER_IMAGE="debian:unstable";;
+            debian_unstable)  DOCKER_IMAGE="debian:unstable";;
             fedora_latest)  DOCKER_IMAGE="fedora:latest";;
-            fedora-rawhide)  DOCKER_IMAGE="fedora:rawhide";;
+            fedora_rawhide)  DOCKER_IMAGE="fedora:rawhide";;
             gentoo_latest)  DOCKER_IMAGE="gentoo/stage3-amd64:latest";;
             kali_latest)  DOCKER_IMAGE="kalilinux/kali:latest";;
-            opensuse-leap)  DOCKER_IMAGE="opensuse/leap:latest";;
-            opensuse-tumbleweed)  DOCKER_IMAGE="opensuse/tumbleweed:latest";;
+            opensuse_leap)  DOCKER_IMAGE="opensuse/leap:latest";;
+            opensuse_tumbleweed)  DOCKER_IMAGE="opensuse/tumbleweed:latest";;
             redhat_latest)  DOCKER_IMAGE="registry.access.redhat.com/ubi8/ubi:latest";;
             ubuntu_latest)  DOCKER_IMAGE="ubuntu:latest";;
-            ubuntu-devel)  DOCKER_IMAGE="ubuntu:devel";;
+            ubuntu_devel)  DOCKER_IMAGE="ubuntu:devel";;
           esac
           echo ::set-output name=docker-image::${DOCKER_IMAGE}
           if [[ "${{ matrix.distro }}" == alpine* ]]; then
