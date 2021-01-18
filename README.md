@@ -100,13 +100,13 @@ Author Information
 - [Brian Rimek](https://github.com/rembik)
 
 
-[ci]: https://github.com/rembik/ansible-role-bootstrap/actions
+[ci]: https://github.com/rembik/ansible-role-bootstrap/actions?query=workflow%3ACI
 [travis_ci]: https://travis-ci.org/github/rembik/ansible-role-bootstrap
 [release]: https://github.com/rembik/ansible-role-bootstrap/releases
 [ansible_role]: https://galaxy.ansible.com/rembik/bootstrap
 
-[ci_badge]: https://img.shields.io/github/workflow/status/rembik/ansible-role-bootstrap/CI/master?logo=github&label=test
-[travis_ci_badge]: https://img.shields.io/travis/rembik/ansible-role-bootstrap/master.svg?logo=travis-ci&logoColor=EEE&label=test
+[ci_badge]: https://img.shields.io/github/workflow/status/rembik/ansible-role-bootstrap/CI/master?logo=github&label=CI
+[travis_ci_badge]: https://img.shields.io/travis/rembik/ansible-role-bootstrap/master.svg?logo=travis-ci&logoColor=EEE&label=CI
 [release_badge]: https://img.shields.io/github/release/rembik/ansible-role-bootstrap.svg?sort=semver&colorB=56b4b6&logo=github&logoColor=EEE
 [ansible_role_badge]: https://img.shields.io/ansible/role/36340.svg?colorB=56b4b6&logo=ansible&logoColor=EEE
 [ansible_downloads_badge]: https://img.shields.io/ansible/role/d/36340.svg?label=downloads&logo=ansible&logoColor=EEE

@@ -43,6 +43,8 @@
           bootstrap_os_family in ["Alpine", "Archlinux", "Gentoo"]) or
           (bootstrap_install.stdout_regex not in bootstrap_install_packages.stdout and
           bootstrap_os_family in ["Debian", "RedHat", "Suse"])
+      async: "{{ bootstrap_install_timeout }}"
+      poll: 5
       vars:
         ansible_user: "{{ bootstrap_ansible_user }}"
 
@@ -51,19 +53,12 @@
       vars:
         ansible_user: "{{ bootstrap_ansible_user }}"
 
-    - name: Show gathered facts
+    - name: Compare gathered facts
       debug:
         msg: |
-          Bootstrap facts:
-          - {{ bootstrap_distribution | default('NA') }}
-          - {{ bootstrap_distribution_major_version | default('NA') }}
-          - {{ bootstrap_os_family | default('NA') }}
-          Ansible facts:
-          - {{ ansible_distribution | default('NA') }}
-          - {{ ansible_distribution_major_version | default('NA') }}
-          - {{ ansible_os_family | default('NA') }}
-      vars:
-        ansible_user: "{{ bootstrap_ansible_user }}"
+          {{ bootstrap_distribution|default('NA') }} <-> {{ ansible_distribution }}
+          {{ bootstrap_distribution_major_version|default('NA') }} <-> {{ ansible_distribution_major_version }}
+          {{ bootstrap_os_family | default('NA') }} <-> {{ ansible_os_family }}
 
     - name: Install bootstrap packages
       package:
