@@ -26,8 +26,6 @@ jobs:
           - centos_latest
           - debian_latest
           - fedora_latest
-          - gentoo_latest
-          - kali_latest
           - opensuse_leap
           - opensuse_tumbleweed
           - redhat_latest
@@ -40,8 +38,6 @@ jobs:
           - {distro: amazonlinux_latest, ansible: devel, python-version: 3.9, experimental: true}
           - {distro: debian_latest, ansible: devel, python-version: 3.9, experimental: true}
           - {distro: fedora_latest, ansible: devel, python-version: 3.9, experimental: true}
-          - {distro: gentoo_latest, ansible: devel, python-version: 3.9, experimental: true}
-          - {distro: kali_latest, ansible: devel, python-version: 3.9, experimental: true}
           - {distro: opensuse_leap, ansible: devel, python-version: 3.9, experimental: true}
           - {distro: opensuse_tumbleweed, ansible: devel, python-version: 3.9, experimental: true}
           - {distro: redhat_latest, ansible: devel, python-version: 3.9, experimental: true}
@@ -49,6 +45,8 @@ jobs:
           - {distro: alpine_edge, ansible: all, python-version: 3.9, experimental: true}
           - {distro: debian_unstable, ansible: all, python-version: 3.9, experimental: true}
           - {distro: fedora_rawhide, ansible: all, python-version: 3.9, experimental: true}
+          - {distro: gentoo_latest, ansible: all, python-version: 3.9, experimental: true}
+          - {distro: kali_latest, ansible: all, python-version: 3.9, experimental: true}
           - {distro: ubuntu_devel, ansible: all, python-version: 3.9, experimental: true}
 
     steps:
@@ -122,5 +120,5 @@ jobs:
 
       - name: Publish
         run: >
-          ansible-galaxy role import --api-key ${{ secrets.ansible-galaxy-api-key }}
+          ansible-galaxy role import --api-key ${{ secrets.ANSIBLE_GALAXY_API_KEY }}
           $(echo $GITHUB_REPOSITORY | cut -d/ -f1) $(echo $GITHUB_REPOSITORY | cut -d/ -f2)

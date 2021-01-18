@@ -141,8 +141,8 @@ Author Information
 [centos_badge]: https://img.shields.io/badge/CentOS-latest-1488C6.svg?logo=docker&logoColor=EEE
 [debian_badge]: https://img.shields.io/badge/Debian-latest%20%7C%20unstable%2A-1488C6.svg?logo=docker&logoColor=EEE
 [fedora_badge]: https://img.shields.io/badge/Fedora-latest%20%7C%20rawhide%2A-1488C6.svg?logo=docker&logoColor=EEE
-[gentoo_badge]: https://img.shields.io/badge/Gentoo-latest-1488C6.svg?logo=docker&logoColor=EEE
-[kali_badge]: https://img.shields.io/badge/Kali-latest-1488C6.svg?logo=docker&logoColor=EEE
+[gentoo_badge]: https://img.shields.io/badge/Gentoo-latest%2A-1488C6.svg?logo=docker&logoColor=EEE
+[kali_badge]: https://img.shields.io/badge/Kali-latest%2A-1488C6.svg?logo=docker&logoColor=EEE
 [opensuse_badge]: https://img.shields.io/badge/openSUSE-Leap%20%7C%20Tumbleweed-1488C6.svg?logo=docker&logoColor=EEE
 [redhat_badge]: https://img.shields.io/badge/RedHat-latest-1488C6.svg?logo=docker&logoColor=EEE
 [ubuntu_badge]: https://img.shields.io/badge/Ubuntu-latest%20%7C%20devel%2A-1488C6.svg?logo=docker&logoColor=EEE

@@ -51,12 +51,17 @@
       vars:
         ansible_user: "{{ bootstrap_ansible_user }}"
 
-    - name: Debug ansible facts
+    - name: Show gathered facts
       debug:
         msg: |
-          {{ ansible_distribution | default('NA') }}
-          {{ ansible_distribution_major_version | default('NA') }}
-          {{ ansible_os_family | default('NA') }}
+          Bootstrap facts:
+          - {{ bootstrap_distribution | default('NA') }}
+          - {{ bootstrap_distribution_major_version | default('NA') }}
+          - {{ bootstrap_os_family | default('NA') }}
+          Ansible facts:
+          - {{ ansible_distribution | default('NA') }}
+          - {{ ansible_distribution_major_version | default('NA') }}
+          - {{ ansible_os_family | default('NA') }}
       vars:
         ansible_user: "{{ bootstrap_ansible_user }}"
 

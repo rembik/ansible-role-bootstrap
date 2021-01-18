@@ -3,7 +3,7 @@
 _bootstrap_packages:
   Alpine: python3 sudo
   Archlinux: python sudo
-  Debian: python3 sudo gnupg python3-apt
+  Debian: python3 python3-apt sudo gnupg
   Gentoo: python sudo gentoolkit
   RedHat: python3 sudo
   Suse: python3 python3-xml sudo
