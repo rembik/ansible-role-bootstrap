@@ -25,6 +25,7 @@ jobs:
         distro:
           - alpine_latest
           - amazonlinux_latest
+          - archlinux_latest
           - centos_latest
           - debian_latest
           - fedora_latest
@@ -38,6 +39,7 @@ jobs:
         include:
           - {distro: alpine_latest, ansible: devel, python-version: 3.9, experimental: true}
           - {distro: amazonlinux_latest, ansible: devel, python-version: 3.9, experimental: true}
+          - {distro: archlinux_latest, ansible: devel, python-version: 3.9, experimental: true}
           - {distro: debian_latest, ansible: devel, python-version: 3.9, experimental: true}
           - {distro: fedora_latest, ansible: devel, python-version: 3.9, experimental: true}
           - {distro: opensuse_leap, ansible: devel, python-version: 3.9, experimental: true}
@@ -62,6 +64,7 @@ jobs:
             alpine_latest)  DOCKER_IMAGE="alpine:latest";;
             alpine-edge)  DOCKER_IMAGE="alpine:edge";;
             amazonlinux_latest)  DOCKER_IMAGE="amazonlinux:latest";;
+            archlinux_latest)  DOCKER_IMAGE="archlinux/base:latest";;
             centos_latest)  DOCKER_IMAGE="centos:latest";;
             debian_latest)  DOCKER_IMAGE="debian:latest";;
             debian-unstable)  DOCKER_IMAGE="debian:unstable";;
