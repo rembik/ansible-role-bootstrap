@@ -7,8 +7,10 @@ on:
     branches:
       - 'master'
     tags:
-      - 'v?[0-9]+.[0-9]+.[0-9]+*'
+      - 'v?[0-9]+\.[0-9]+\.[0-9]+'
   pull_request:
+    branches:
+      - 'master'
 
 jobs:
 
@@ -104,21 +106,28 @@ jobs:
 
   release:
     name: Release Ansible role
-    needs:
-      - test
-    if: false
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out codebase
         uses: actions/checkout@v2
 
+      - name: Check out tag
+        id: tag
+        run: |
+          if [[ ${{ github.event.ref }} =~ ^refs/tags/v?[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+              echo ::set-output name=release::true
+          fi
+
       - name: Install dependencies
+        if: steps.tag.outputs.release == 'true'
         run: |
           python -m pip install --upgrade pip
           pip install ansible
 
       - name: Publish
+        if: steps.tag.outputs.release == 'true'
         run: >
           ansible-galaxy role import --api-key ${{ secrets.ANSIBLE_GALAXY_API_KEY }}
           $(echo $GITHUB_REPOSITORY | cut -d/ -f1) $(echo $GITHUB_REPOSITORY | cut -d/ -f2)
