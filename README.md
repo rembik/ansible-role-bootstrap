@@ -66,16 +66,20 @@ This role is tested periodically against the following Linux distributions:
 || [![][ansible_previous_badge]][ansible_previous] | [![][ansible_latest_badge]][ansible_latest] | [![][ansible_devel_badge]][ansible_devel] |
 |---|---|---|---|
 | [![][alpine_badge]][alpine] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
-| [![][amazonlinux_badge]][amazonlinux] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
+| [![][amazonlinux_badge]][amazonlinux] || [![][x]][ci] ||
 | [![][archlinux_badge]][archlinux] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
 | [![][centos_badge]][centos] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
 | [![][debian_badge]][debian] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
 | [![][fedora_badge]][fedora] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
 | [![][gentoo_badge]][gentoo] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
-| [![][kali_badge]][kali] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
+| [![][kali_badge]][kali] || [![][x]][ci] ||
 | [![][opensuse_badge]][opensuse] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
 | [![][redhat_badge]][redhat] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
 | [![][ubuntu_badge]][ubuntu] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
+| [![][alpine_preview_badge]][alpine] || [![][x]][ci] | [![][x]][ci] |
+| [![][debian_preview_badge]][debian] || [![][x]][ci] | [![][x]][ci] |
+| [![][fedora_preview_badge]][fedora] || [![][x]][ci] | [![][x]][ci] |
+| [![][ubuntu_preview_badge]][ubuntu] || [![][x]][ci] | [![][x]][ci] |
 
 > Asteriks means the build is allowed to fail, it's marked as an experimental build.
 
@@ -135,15 +139,19 @@ Author Information
 [redhat]: https://access.redhat.com/containers/#/registry.access.redhat.com/ubi8/ubi
 [ubuntu]: https://hub.docker.com/_/ubuntu
 
-[alpine_badge]: https://img.shields.io/badge/Alpine-latest%20%7C%20edge%2A-1488C6.svg?logo=docker&logoColor=EEE
+[alpine_badge]: https://img.shields.io/badge/Alpine-latest-1488C6.svg?logo=docker&logoColor=EEE
+[alpine_preview_badge]: https://img.shields.io/badge/Alpine-edge%2A-1488C6.svg?logo=docker&logoColor=EEE
 [amazonlinux_badge]: https://img.shields.io/badge/AmazonLinux-latest-1488C6.svg?logo=docker&logoColor=EEE
 [archlinux_badge]: https://img.shields.io/badge/ArchLinux-latest-1488C6.svg?logo=docker&logoColor=EEE
 [centos_badge]: https://img.shields.io/badge/CentOS-latest-1488C6.svg?logo=docker&logoColor=EEE
-[debian_badge]: https://img.shields.io/badge/Debian-latest%20%7C%20unstable%2A-1488C6.svg?logo=docker&logoColor=EEE
-[fedora_badge]: https://img.shields.io/badge/Fedora-latest%20%7C%20rawhide%2A-1488C6.svg?logo=docker&logoColor=EEE
-[gentoo_badge]: https://img.shields.io/badge/Gentoo-latest%2A-1488C6.svg?logo=docker&logoColor=EEE
-[kali_badge]: https://img.shields.io/badge/Kali-latest%2A-1488C6.svg?logo=docker&logoColor=EEE
+[debian_badge]: https://img.shields.io/badge/Debian-latest-1488C6.svg?logo=docker&logoColor=EEE
+[debian_preview_badge]: https://img.shields.io/badge/Debian-unstable%2A-1488C6.svg?logo=docker&logoColor=EEE
+[fedora_badge]: https://img.shields.io/badge/Fedora-latest-1488C6.svg?logo=docker&logoColor=EEE
+[fedora_preview_badge]: https://img.shields.io/badge/Fedora-rawhide%2A-1488C6.svg?logo=docker&logoColor=EEE
+[gentoo_badge]: https://img.shields.io/badge/Gentoo-latest-1488C6.svg?logo=docker&logoColor=EEE
+[kali_badge]: https://img.shields.io/badge/Kali-latest-1488C6.svg?logo=docker&logoColor=EEE
 [opensuse_badge]: https://img.shields.io/badge/openSUSE-Leap%20%7C%20Tumbleweed-1488C6.svg?logo=docker&logoColor=EEE
 [redhat_badge]: https://img.shields.io/badge/RedHat-latest-1488C6.svg?logo=docker&logoColor=EEE
-[ubuntu_badge]: https://img.shields.io/badge/Ubuntu-latest%20%7C%20devel%2A-1488C6.svg?logo=docker&logoColor=EEE
+[ubuntu_badge]: https://img.shields.io/badge/Ubuntu-latest-1488C6.svg?logo=docker&logoColor=EEE
+[ubuntu_preview_badge]: https://img.shields.io/badge/Ubuntu-devel%2A-1488C6.svg?logo=docker&logoColor=EEE
 [x]: https://img.shields.io/badge/X-grey.svg
