@@ -1,10 +1,10 @@
 Ansible Role: Bootstrap
 =======================
 
-[![][ci_badge]][ci]
-[![][release_badge]][release]
-[![][ansible_role_badge]][ansible_role]
-[![][ansible_downloads_badge]][ansible_role]
+[![ci_badge]][ci]
+[![release_badge]][release]
+[![ansible_role_badge]][ansible_role]
+[![ansible_downloads_badge]][ansible_role]
 
 Prepare your system to be managed by Ansible.
 
@@ -42,6 +42,7 @@ Example Playbook
 ----------------
 
 This example is taken from `molecule/resources/converge.yml`:
+
 ```yaml
 ---
 - name: Converge
@@ -58,30 +59,23 @@ This example is taken from `molecule/resources/converge.yml`:
 Tests
 -----
 
-[![][python_badge]][python]
-[![][ansible_badge]][ansible]
-
 This role is tested periodically against the following Linux distributions:
 
-|| [![][ansible_previous_badge]][ansible_previous] | [![][ansible_latest_badge]][ansible_latest] | [![][ansible_devel_badge]][ansible_devel] |
+| [![python_badge] ![ansible_badge]][python] | [![ansible_previous_badge]][ansible_previous] | [![ansible_latest_badge]][ansible_latest] | [![ansible_devel_badge]][ansible_devel] |
 |---|---|---|---|
-| [![][alpine_badge]][alpine] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
-| [![][amazonlinux_badge]][amazonlinux] || [![][x]][ci] ||
-| [![][archlinux_badge]][archlinux] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
-| [![][centos_badge]][centos] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
-| [![][debian_badge]][debian] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
-| [![][fedora_badge]][fedora] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
-| [![][gentoo_badge]][gentoo] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
-| [![][kali_badge]][kali] || [![][x]][ci] ||
-| [![][opensuse_badge]][opensuse] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
-| [![][redhat_badge]][redhat] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
-| [![][ubuntu_badge]][ubuntu] | [![][x]][ci] | [![][x]][ci] | [![][x]][ci] |
-| [![][alpine_preview_badge]][alpine] || [![][x]][ci] | [![][x]][ci] |
-| [![][debian_preview_badge]][debian] || [![][x]][ci] | [![][x]][ci] |
-| [![][fedora_preview_badge]][fedora] || [![][x]][ci] | [![][x]][ci] |
-| [![][ubuntu_preview_badge]][ubuntu] || [![][x]][ci] | [![][x]][ci] |
+| [![alpine_badge]][alpine] | [![x]][ci] | [![x] ![e2]][ci] | [![e] ![e2]][ci] |
+| [![amazonlinux_badge]][amazonlinux] || [![x]][ci] ||
+| [![archlinux_badge]][archlinux] | [![x]][ci] | [![x]][ci] | [![e]][ci] |
+| [![centos_badge]][centos] | [![x]][ci] | [![x]][ci] | [![e]][ci] |
+| [![debian_badge]][debian] | [![x]][ci] | [![x] ![e2]][ci] | [![e] ![e2]][ci] |
+| [![fedora_badge]][fedora] | [![x]][ci] | [![x] ![e2]][ci] | [![e] ![e2]][ci] |
+| [![gentoo_badge]][gentoo] | [![x]][ci] | [![x]][ci] | [![e]][ci] |
+| [![kali_badge]][kali] || [![x]][ci] ||
+| [![opensuse_badge]][opensuse] | [![x]][ci] | [![x]][ci] | [![e]][ci] |
+| [![redhat_badge]][redhat] | [![x]][ci] | [![x]][ci] | [![e]][ci] |
+| [![ubuntu_badge]][ubuntu] | [![x]][ci] | [![x] ![e2]][ci] | [![e] ![e2]][ci] |
 
-> Asteriks means the build is allowed to fail, it's marked as an experimental build.
+> [![e]][ci] means the build is allowed to fail, it's marked as an experimental build.
 
 Contributing
 ------------
@@ -99,7 +93,6 @@ Author Information
 - [Robert de Bock](https://robertdebock.nl/) <robert@meinit.nl>
 - [Brian Rimek](https://github.com/rembik)
 
-
 [ci]: https://github.com/rembik/ansible-role-bootstrap/actions?query=workflow%3ACI
 [travis_ci]: https://travis-ci.org/github/rembik/ansible-role-bootstrap
 [release]: https://github.com/rembik/ansible-role-bootstrap/releases
@@ -116,16 +109,15 @@ Author Information
 [license]: https://github.com/rembik/ansible-role-bootstrap/blob/master/LICENSE
 
 [python]: https://www.python.org/
-[ansible]: https://ansible.com/
 [ansible_previous]: https://docs.ansible.com/ansible/2.9/
 [ansible_latest]: https://docs.ansible.com/ansible/2.10/
 [ansible_devel]: https://docs.ansible.com/ansible/devel/
 
-[python_badge]: https://img.shields.io/badge/python-3.9-1488C6.svg
-[ansible_badge]: https://img.shields.io/badge/Ansible-2.9%20%7C%202.10%20%7C%20devel%2A-56b4b6.svg
-[ansible_previous_badge]: https://img.shields.io/badge/2.9-56b4b6.svg
-[ansible_latest_badge]: https://img.shields.io/badge/2.10-56b4b6.svg
-[ansible_devel_badge]: https://img.shields.io/badge/devel%2A-56b4b6.svg
+[python_badge]: https://img.shields.io/badge/Python-3.9-1488C6
+[ansible_badge]: https://img.shields.io/badge/Ansible--56b4b6
+[ansible_previous_badge]: https://img.shields.io/badge/2.9-56b4b6
+[ansible_latest_badge]: https://img.shields.io/badge/2.10-56b4b6
+[ansible_devel_badge]: https://img.shields.io/badge/devel-56b4b6
 
 [alpine]: https://hub.docker.com/_/alpine
 [amazonlinux]: https://hub.docker.com/_/amazonlinux
@@ -139,19 +131,18 @@ Author Information
 [redhat]: https://access.redhat.com/containers/#/registry.access.redhat.com/ubi8/ubi
 [ubuntu]: https://hub.docker.com/_/ubuntu
 
-[alpine_badge]: https://img.shields.io/badge/Alpine-latest-1488C6.svg?logo=docker&logoColor=EEE
-[alpine_preview_badge]: https://img.shields.io/badge/Alpine-edge%2A-1488C6.svg?logo=docker&logoColor=EEE
+[alpine_badge]: https://img.shields.io/badge/Alpine-latest%20%7C%20edge-1488C6.svg?logo=docker&logoColor=EEE
 [amazonlinux_badge]: https://img.shields.io/badge/AmazonLinux-latest-1488C6.svg?logo=docker&logoColor=EEE
 [archlinux_badge]: https://img.shields.io/badge/ArchLinux-latest-1488C6.svg?logo=docker&logoColor=EEE
 [centos_badge]: https://img.shields.io/badge/CentOS-latest-1488C6.svg?logo=docker&logoColor=EEE
-[debian_badge]: https://img.shields.io/badge/Debian-latest-1488C6.svg?logo=docker&logoColor=EEE
-[debian_preview_badge]: https://img.shields.io/badge/Debian-unstable%2A-1488C6.svg?logo=docker&logoColor=EEE
-[fedora_badge]: https://img.shields.io/badge/Fedora-latest-1488C6.svg?logo=docker&logoColor=EEE
-[fedora_preview_badge]: https://img.shields.io/badge/Fedora-rawhide%2A-1488C6.svg?logo=docker&logoColor=EEE
+[debian_badge]: https://img.shields.io/badge/Debian-latest%20%7C%20unstable-1488C6.svg?logo=docker&logoColor=EEE
+[fedora_badge]: https://img.shields.io/badge/Fedora-latest%20%7C%20rawhide-1488C6.svg?logo=docker&logoColor=EEE
 [gentoo_badge]: https://img.shields.io/badge/Gentoo-latest-1488C6.svg?logo=docker&logoColor=EEE
 [kali_badge]: https://img.shields.io/badge/Kali-latest-1488C6.svg?logo=docker&logoColor=EEE
 [opensuse_badge]: https://img.shields.io/badge/openSUSE-leap%20%7C%20tumbleweed-1488C6.svg?logo=docker&logoColor=EEE
 [redhat_badge]: https://img.shields.io/badge/RedHat-latest-1488C6.svg?logo=docker&logoColor=EEE
-[ubuntu_badge]: https://img.shields.io/badge/Ubuntu-latest-1488C6.svg?logo=docker&logoColor=EEE
-[ubuntu_preview_badge]: https://img.shields.io/badge/Ubuntu-devel%2A-1488C6.svg?logo=docker&logoColor=EEE
-[x]: https://img.shields.io/badge/X-grey.svg
+[ubuntu_badge]: https://img.shields.io/badge/Ubuntu-latest%20%7C%20devel-1488C6.svg?logo=docker&logoColor=EEE
+[x]: https://img.shields.io/badge/%b7-7a8f54
+[e]: https://img.shields.io/badge/%b7-9e8e47
+[x2]: https://img.shields.io/badge/%b2-7a8f54
+[e2]: https://img.shields.io/badge/%b2-9e8e47
