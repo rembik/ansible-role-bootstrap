@@ -62,20 +62,19 @@ Tests
 This role is tested periodically against the following Linux distributions:
 
 | [![python_badge] ![ansible_badge]][python] | [![ansible_previous_badge]][ansible_previous] | [![ansible_latest_badge]][ansible_latest] | [![ansible_devel_badge]][ansible_devel] |
-|---|---|---|---|
-| [![alpine_badge]][alpine] | [![x]][ci] | [![x] ![e2]][ci] | [![e] ![e2]][ci] |
+|:--|:--|:--|:--|
+| [![alpine_badge]][alpine] | [![x1]][ci] | [![x1] ![e2]][ci] | [![e1] ![e2]][ci] |
 | [![amazonlinux_badge]][amazonlinux] || [![x]][ci] ||
 | [![archlinux_badge]][archlinux] | [![x]][ci] | [![x]][ci] | [![e]][ci] |
 | [![centos_badge]][centos] | [![x]][ci] | [![x]][ci] | [![e]][ci] |
-| [![debian_badge]][debian] | [![x]][ci] | [![x] ![e2]][ci] | [![e] ![e2]][ci] |
-| [![fedora_badge]][fedora] | [![x]][ci] | [![x] ![e2]][ci] | [![e] ![e2]][ci] |
+| [![debian_badge]][debian] | [![x1]][ci] | [![x1] ![e2]][ci] | [![e1] ![e2]][ci] |
+| [![fedora_badge]][fedora] | [![x1]][ci] | [![x1] ![e2]][ci] | [![e1] ![e2]][ci] |
 | [![gentoo_badge]][gentoo] | [![x]][ci] | [![x]][ci] | [![e]][ci] |
 | [![kali_badge]][kali] || [![x]][ci] ||
-| [![opensuse_badge]][opensuse] | [![x]][ci] | [![x]][ci] | [![e]][ci] |
+| [![opensuse_badge]][opensuse] | [![x1] ![x2]][ci] | [![x1] ![x2]][ci] | [![e1] ![e2]][ci] |
 | [![redhat_badge]][redhat] | [![x]][ci] | [![x]][ci] | [![e]][ci] |
-| [![ubuntu_badge]][ubuntu] | [![x]][ci] | [![x] ![e2]][ci] | [![e] ![e2]][ci] |
-
-> [![e]][ci] means the build is allowed to fail, it's marked as an experimental build.
+| [![ubuntu_badge]][ubuntu] | [![x1]][ci] | [![x1] ![e2]][ci] | [![e1] ![e2]][ci] |
+| [![xl] ![el]][ci] |||
 
 Contributing
 ------------
@@ -142,7 +141,12 @@ Author Information
 [opensuse_badge]: https://img.shields.io/badge/openSUSE-leap%20%7C%20tumbleweed-1488C6.svg?logo=docker&logoColor=EEE
 [redhat_badge]: https://img.shields.io/badge/RedHat-latest-1488C6.svg?logo=docker&logoColor=EEE
 [ubuntu_badge]: https://img.shields.io/badge/Ubuntu-latest%20%7C%20devel-1488C6.svg?logo=docker&logoColor=EEE
-[x]: https://img.shields.io/badge/%b7-7a8f54
-[e]: https://img.shields.io/badge/%b7-9e8e47
-[x2]: https://img.shields.io/badge/%b2-7a8f54
-[e2]: https://img.shields.io/badge/%b2-9e8e47
+
+[xl]: https://img.shields.io/badge/%b7-mandatory-grey?labelColor=green
+[el]: https://img.shields.io/badge/%b7-experimental-grey?labelColor=yellow
+[x]: https://img.shields.io/badge/%b7-green
+[e]: https://img.shields.io/badge/%b7-yellow
+[x1]: https://img.shields.io/badge/%b9-green
+[e1]: https://img.shields.io/badge/%b9-yellow
+[x2]: https://img.shields.io/badge/%b2-green
+[e2]: https://img.shields.io/badge/%b2-yellow
