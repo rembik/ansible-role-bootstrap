@@ -8,7 +8,6 @@ _bootstrap_packages:
   RedHat: python3 sudo
   Suse: python3 python3-xml sudo
   Amazon: python sudo
-  CentOS_7: python sudo
   Debian_8: python sudo gnupg
   Debian_9: python sudo gnupg
   RedHat_7: python sudo
@@ -21,11 +20,14 @@ _bootstrap_install:
     raw: "LANG=C pacman -Sy --noconfirm {{ bootstrap_packages }}"
     stdout_regex: ' installing python'
   Debian:
-    raw: "LANG=C apt-get update && apt-get install -y {{ bootstrap_packages }}"
+    raw: >-
+      LANG=C apt-get update &&
+      DEBIAN_FRONTEND=noninteractive apt-get install -y {{ bootstrap_packages }}
     stdout_regex: ' 0 newly installed'
   Gentoo:
-    raw: "LANG=C equery l {{ bootstrap_packages }} ||
-          (emaint -a sync ; emerge -qkv {{ bootstrap_packages }} ; echo 'changed')"
+    raw: >-
+      LANG=C equery l {{ bootstrap_packages }} ||
+      (emaint -a sync ; emerge -qkv {{ bootstrap_packages }} ; echo 'changed')
     stdout_regex: 'changed'
   RedHat:
     raw: "LANG=C yum -y install {{ bootstrap_packages }}"
@@ -47,8 +49,8 @@ bootstrap_os_family_map:
            'Ascendos', 'CloudLinux', 'PSBM', 'OracleLinux', 'OVS',
            'OEL', 'Amazon', 'Virtuozzo', 'XenServer', 'Alibaba',
            'EulerOS', 'openEuler']
-  Suse: ['SuSE', 'SLES', 'SLED', 'openSUSE', 'openSUSE Tumbleweed',
-         'SLES_SAP', 'SUSE_LINUX', 'openSUSE Leap']
+  Suse: ['openSUSE Tumbleweed', 'openSUSE Leap', 'SLES_SAP', 'SUSE_LINUX',
+         'openSUSE', 'SLES', 'SLED', 'SuSE']
 
 bootstrap_search:
   Archlinux: 'Arch Linux'
