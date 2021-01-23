@@ -1,8 +1,6 @@
 ---
 dependency:
   name: galaxy
-  options:
-    role-file: requirements.yml
 driver:
   name: ec2
 lint: |
@@ -55,9 +53,13 @@ provisioner:
   name: ansible
   config_options:
     defaults:
+      interpreter_python: auto_silent
+      callback_whitelist: profile_tasks, timer, yaml
       stdout_callback: yaml
-      callback_plugins: /usr/lib/python${TEST_PYTHON_VERSION:-3.9}/site-packages/ara/plugins/callbacks
   playbooks:
+    ec2:
+      create: ${TEST_CREATE:-../resources/ec2/create.yml}
+      destroy: ${TEST_DESTROY:-../resources/ec2/destroy.yml}
     converge: ${TEST_CONVERGE:-../resources/converge.yml}
     verify: ${TEST_VERIFY:-../resources/verify.yml}
   inventory:

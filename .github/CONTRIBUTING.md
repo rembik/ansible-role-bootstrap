@@ -12,18 +12,20 @@ You are very welcome to develop bug fixes or features. Please make sure to run t
 
 ## Test
 
-This role uses [Molecule](https://github.com/metacloud/molecule) for testing and that, in turn, uses Ansible to deploy the needed test infrastructure:
-```
-sudo pip install ansible
-sudo pip install molecule
+This role uses [Molecule](https://github.com/ansible-community/molecule) for testing and that, in turn, uses Ansible to deploy the needed test infrastructure:
+
+```shell
+sudo pip install ansible yamllint ansible-lint molecule
 ```
 
 You can decide, if you want to run the tests locally with Docker or on Amazon EC2. Follow the respective requirements for that:
-- [Docker](http://github.com/rembik/ansible-role-bootstrap/tree/master/molecule/default/INSTALL.rst)
-- [Amazon EC2](http://github.com/rembik/ansible-role-bootstrap/tree/master/molecule/ec2/INSTALL.rst)
+
+- [Docker](http://github.com/rembik/ansible-role-bootstrap/tree/master/molecule/resources/docker/INSTALL.rst)
+- [Amazon EC2](http://github.com/rembik/ansible-role-bootstrap/tree/master/molecule/resources/ec2/INSTALL.rst)
 
 Then run the test with the chosen deployment method:
-```
+
+```shell
 molecule test
 molecule test --senario-name docker-all-latest
 
@@ -32,7 +34,8 @@ molecule test --scenario-name ec2-all-latest
 ```
 
 In addition, if you want to run the tests on different Ansible versions locally with Docker and/or on Amazon EC2, use [tox](https://tox.readthedocs.io/en/latest/):
-```
+
+```shell
 sudo pip install tox
 
 tox

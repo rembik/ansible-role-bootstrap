@@ -1,8 +1,6 @@
 ---
 dependency:
   name: galaxy
-  options:
-    role-file: requirements.yml
 driver:
   name: docker
 lint: |
@@ -25,6 +23,8 @@ platforms:
   - name: instance_archlinux_latest_docker
     image: archlinux/base:latest
     pre_build_image: yes
+    groups:
+      - opensuse_archlinux_docker
   - name: instance_centos_latest_docker
     image: centos:latest
     pre_build_image: yes
@@ -53,9 +53,13 @@ platforms:
   - name: instance_opensuse_leap_docker
     image: opensuse/leap:latest
     pre_build_image: yes
+    groups:
+      - opensuse_leap_docker
   - name: instance_opensuse_tumbleweed_docker
     image: opensuse/tumbleweed:latest
     pre_build_image: yes
+    groups:
+      - opensuse_tumbleweed_docker
   - name: instance_redhat_latest_docker
     image: registry.access.redhat.com/ubi8/ubi:latest
     pre_build_image: yes
@@ -70,8 +74,9 @@ provisioner:
   name: ansible
   config_options:
     defaults:
+      interpreter_python: auto_silent
+      callback_whitelist: profile_tasks, timer, yaml
       stdout_callback: yaml
-      callback_plugins: /usr/lib/python${TEST_PYTHON_VERSION:-3.9}/site-packages/ara/plugins/callbacks
   playbooks:
     converge: ${TEST_CONVERGE:-../resources/converge.yml}
     verify: ${TEST_VERIFY:-../resources/verify.yml}
