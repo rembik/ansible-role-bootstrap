@@ -57,6 +57,7 @@ jobs:
 
   test:
     name: Test Ansible role
+    needs: cache
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental }}
     outputs:
